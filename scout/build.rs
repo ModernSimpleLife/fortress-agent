@@ -1,18 +1,5 @@
-use std::path::PathBuf;
-
-use embuild::{
-    self, bingen,
-    build::{CfgArgs, LinkArgs},
-    cargo, symgen,
-};
-
+// Necessary because of this issue: https://github.com/rust-lang/cargo/issues/9641
 fn main() -> anyhow::Result<()> {
-    // Necessary because of this issue: https://github.com/rust-lang/cargo/issues/9641
-    LinkArgs::output_propagated("ESP_IDF")?;
-
-    let cfg = CfgArgs::try_from_env("ESP_IDF")?;
-    cfg.output();
-
-    Ok(())
+    embuild::build::CfgArgs::output_propagated("ESP_IDF")?;
+    embuild::build::LinkArgs::output_propagated("ESP_IDF")
 }
-
