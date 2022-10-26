@@ -32,3 +32,5 @@ Usb 2.0 devices work with usb 1.0 hosts, but lower throughput: https://www.quora
 Low speed USB 1.0 software only: https://github.com/cnlohr/espusb
 
 USB 1.0 spec: https://fabiensanglard.net/usbcheat/usb1.pdf
+
+USB keyboard deep dive: https://www.youtube.com/watch?v=wdgULBpRoXk
