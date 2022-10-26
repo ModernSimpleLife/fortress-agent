@@ -25,3 +25,8 @@ https://www.reddit.com/r/embedded/comments/ii73vr/best_low_cost_production_ready
 https://www.reddit.com/r/esp32/comments/r31v43/is_there_an_h264_or_h265_encoder_chip_that_works/
 
 https://www.reddit.com/r/embedded/comments/fx0b5b/need_low_power_h264_encoder_for_embedded_camera/
+
+
+Usb 2.0 devices work with usb 1.0 hosts, but lower throughput: https://www.quora.com/Does-hooking-up-a-Webcam-to-USB-3-or-USB-Type-C-make-a-live-stream-any-better-then-regular-USB-2
+
+Low speed USB 1.0 software only: https://github.com/cnlohr/espusb
