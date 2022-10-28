@@ -18,6 +18,15 @@ Slow Termux calls: https://github.com/termux/termux-api/issues/63, https://githu
 Run Activity Manager as a service: https://github.com/termux/termux-api/pull/471
 
 
+### Power Benchmark
+
+Alfred
+
+|Time|Power Level|
+|:--:|:--:|
+|1666993341|100%|
+
+
 ## Hardware
 
 ### Case
