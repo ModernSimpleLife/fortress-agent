@@ -20,6 +20,8 @@ Run Activity Manager as a service: https://github.com/termux/termux-api/pull/471
 
 ### Power Benchmark
 
+Pixel 3
+
 Alfred
 
 |Time|Power Level|
