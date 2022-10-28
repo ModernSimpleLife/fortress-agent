@@ -13,7 +13,7 @@ Optimize the ROM:
 
 Setup storage: `termux-setup-storage`
 
-Slow Termux calls: https://github.com/termux/termux-api/issues/63
+Slow Termux calls: https://github.com/termux/termux-api/issues/63, https://github.com/termux/termux-api/issues/547
 
 Run Activity Manager as a service: https://github.com/termux/termux-api/pull/471
 
