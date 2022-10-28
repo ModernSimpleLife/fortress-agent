@@ -1,0 +1,3 @@
+[submodule "hardware/deps/BOLTS"]
+	path = hardware/deps/BOLTS
+	url = git@github.com:boltsparts/BOLTS.git
