@@ -9,6 +9,15 @@ Optimize the ROM:
 * Compile AOSP from source: https://appuals.com/build-custom-rom-android-open-source-project/
 
 
+### Termux Approach
+
+Setup storage: `termux-setup-storage`
+
+Slow Termux calls: https://github.com/termux/termux-api/issues/63
+
+Run Activity Manager as a service: https://github.com/termux/termux-api/pull/471
+
+
 ## Hardware
 
 ### Case
