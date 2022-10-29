@@ -27,6 +27,9 @@ Alfred
 |Time|Power Level|
 |:--:|:--:|
 |1666993341|100%|
+|1667006042|0%|
+
+3.5 hours runtime
 
 
 ## Hardware
