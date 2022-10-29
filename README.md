@@ -35,7 +35,7 @@ Idle with Wifi On
 
 |Time|Power Level|
 |:--:|:--:|
-|1667061101|100%|
+|1667064784|100%|
 
 
 ## Hardware
@@ -52,6 +52,13 @@ Solar Panel: https://www.amazon.com/AOSHIKE-Polycrystalline-Battery-Charger-2-67
 
 The Vin can be fed to the 5v pin as it feeds the voltage regulator directly (accepts 1.5v to 6v) but MUST BE protected by a diode.
 
+Daily energy usage:
+
+Every cycle:
+  * 10% for wifi sensing + repeater: 74.7mA@3.3v
+  * 90% light sleep: 3.6ma@3.3v
+
+24 * (0.1 * 74.7 + 0.9 * 3.6) =  6.2aH@3.3v = 20.46wh
 
 
 ### Telescope Board
