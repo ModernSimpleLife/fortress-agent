@@ -58,7 +58,7 @@ Every cycle:
   * 10% for wifi sensing + repeater: 74.7mA@3.3v
   * 90% light sleep: 3.6ma@3.3v
 
-24 * (0.1 * 74.7 + 0.9 * 3.6) =  6.2aH@3.3v = 20.46wh
+24 * (0.1 * 74.7 + 0.9 * 3.6) / 1000 * 5v = 1.285wh
 
 DFS algorithm to reduce power usage: https://docs.espressif.com/projects/esp-idf/en/latest/esp32c3/api-reference/system/power_management.html#
 
