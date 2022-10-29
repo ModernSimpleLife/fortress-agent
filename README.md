@@ -46,6 +46,13 @@ Search for "Waterproof DIY Electronic Junction Box", there's a lot of options.
 
 https://a.co/d/7EkK2PK Seems to be the best overall
 
+### Scout
+
+Solar Panel: https://www.amazon.com/AOSHIKE-Polycrystalline-Battery-Charger-2-67x1-45inch/dp/B0736W4HK1/ref=sr_1_7?crid=1VIQ5YBI2CLZH&keywords=epoxy+solar+panel&qid=1667064525&qu=eyJxc2MiOiIyLjE5IiwicXNhIjoiMC4wMCIsInFzcCI6IjAuMDAifQ%3D%3D&sprefix=epoxy+solar+panel%2Caps%2C114&sr=8-7
+
+The Vin can be fed to the 5v pin as it feeds the voltage regulator directly (accepts 1.5v to 6v) but MUST BE protected by a diode.
+
+
 
 ### Telescope Board
 
