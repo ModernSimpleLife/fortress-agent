@@ -31,6 +31,12 @@ Alfred
 
 3.5 hours runtime
 
+Idle with Wifi On
+
+|Time|Power Level|
+|:--:|:--:|
+|1667061101|100%|
+
 
 ## Hardware
 
