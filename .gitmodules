@@ -1,0 +1,6 @@
+[submodule "hardware/deps/BOSL2"]
+	path = hardware/deps/BOSL2
+	url = git@github.com:revarbat/BOSL2.git
+[submodule "hardware/deps/BOSL"]
+	path = hardware/deps/BOSL
+	url = git@github.com:revarbat/BOSL.git
