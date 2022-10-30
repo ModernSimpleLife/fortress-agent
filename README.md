@@ -36,6 +36,7 @@ Idle with Wifi On
 |Time|Power Level|
 |:--:|:--:|
 |1667064784|100%|
+|1667130509|89%|
 
 
 ## Hardware
