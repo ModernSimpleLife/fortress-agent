@@ -1,0 +1,16 @@
+[package]
+name = "telescope"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["lib", "cdylib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+# This dependency will only be included when targeting Android
+[target.'cfg(target_os = "android")'.dependencies]
+ndk-glue = "0.7.0" # Substitute this with the latest ndk-glue version you wish to use
+
