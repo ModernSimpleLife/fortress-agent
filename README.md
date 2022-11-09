@@ -41,6 +41,13 @@ Idle with Wifi On
 |1667491114|42%|
 
 
+Idle with Hotspot On and scout ping every 1 second
+
+|Time|Power Level|
+|:--:|:--:|
+|1668035925|98%|
+
+
 ## Hardware
 
 ### Case
