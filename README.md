@@ -46,6 +46,7 @@ Idle with Hotspot On and scout ping every 1 second
 |Time|Power Level|
 |:--:|:--:|
 |1668035925|98%|
+|1668037249|95%|
 
 
 ## Hardware
