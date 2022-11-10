@@ -48,6 +48,7 @@ Idle with Hotspot On and scout ping every 1 second
 |1668035925|98%|
 |1668037249|95%|
 |1668043025|85%|
+|1668094621|0%|
 
 
 ## Hardware
