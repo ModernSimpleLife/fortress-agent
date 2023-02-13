@@ -91,3 +91,7 @@ Low speed USB 1.0 software only: https://github.com/cnlohr/espusb
 USB 1.0 spec: https://fabiensanglard.net/usbcheat/usb1.pdf
 
 USB keyboard deep dive: https://www.youtube.com/watch?v=wdgULBpRoXk
+
+### References
+
+* PWM Solar Charge Controller Basic Schematics: https://labprojectsbd.com/2021/03/28/solar-charge-controller-circuit/
