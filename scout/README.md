@@ -32,6 +32,8 @@ If we use a 3v @120ma solar, the battery can charge pretty fast. Let say it can 
 
 Hugely based on this idea, https://learn.adafruit.com/adafruit-bq24074-universal-usb-dc-solar-charger-breakout/design-notes. When the Vin drops (read this using ADC), reduce the amps by reducing the transistor duty cycle.
 
+PWM with PID solar charge controller: https://www.hackster.io/guillengap/pid-battery-charger-controller-c88cba
+
 ## Power Saving
 
 * DTIM Beacon,https://lastminuteengineers.com/esp32-sleep-modes-power-consumption/. Receivers adjusts sleep time based on sender pattern
