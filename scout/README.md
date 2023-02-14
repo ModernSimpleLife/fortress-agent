@@ -28,7 +28,7 @@ If we use a 3v @120ma solar, the battery can charge pretty fast. Let say it can 
 
 ## "MPPT" Solar Charger
 
-![PXL_20230214_013451918](https://user-images.githubusercontent.com/15654932/218615480-557fc457-5f96-4e6c-97e1-15fcf3291ff5.jpg)
+![PXL_20230214_013451918](https://user-images.githubusercontent.com/15654932/218615727-3c6c41e1-2b31-44b3-a0d8-d5d7c5a64f60.jpg)
 
 Hugely based on this idea, https://learn.adafruit.com/adafruit-bq24074-universal-usb-dc-solar-charger-breakout/design-notes. When the Vin drops (read this using ADC), reduce the amps by reducing the transistor duty cycle.
 
