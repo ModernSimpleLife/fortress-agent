@@ -26,6 +26,11 @@ If we use a 3.7v @1000mah lipo battery, it could last for 3.7v * 1a / 0.03663w /
 
 If we use a 3v @120ma solar, the battery can charge pretty fast. Let say it can produce 50% of its rating, this means it takes 3.7v * 1a / 3v / 0.12a * 0.5 = ~20hr to fully charge.
 
+## "MPPT" Solar Charger
+
+![PXL_20230214_013451918](https://user-images.githubusercontent.com/15654932/218615480-557fc457-5f96-4e6c-97e1-15fcf3291ff5.jpg)
+
+Hugely based on this idea, https://learn.adafruit.com/adafruit-bq24074-universal-usb-dc-solar-charger-breakout/design-notes. When the Vin drops (read this using ADC), reduce the amps by reducing the transistor duty cycle.
 
 ## Power Saving
 
