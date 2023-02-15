@@ -34,6 +34,8 @@ Hugely based on this idea, https://learn.adafruit.com/adafruit-bq24074-universal
 
 PWM with PID solar charge controller: https://www.hackster.io/guillengap/pid-battery-charger-controller-c88cba
 
+PWM Duty Cycle relationship with power output: https://electronics.stackexchange.com/questions/443772/do-pwm-solar-controllers-increase-current
+
 ## Power Saving
 
 * DTIM Beacon,https://lastminuteengineers.com/esp32-sleep-modes-power-consumption/. Receivers adjusts sleep time based on sender pattern
