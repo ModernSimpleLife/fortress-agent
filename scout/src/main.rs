@@ -1,25 +1,46 @@
-use esp_idf_sys as _; // If using the `binstart` feature of `esp-idf-sys`, always keep this module imported
+#![no_std]
+#![no_main]
 
-use tiny_http::{Response, Server};
+extern crate alloc;
+use esp_backtrace as _;
+use esp_println::println;
+use hal::{clock::ClockControl, peripherals::Peripherals, prelude::*, timer::TimerGroup, Rtc};
+#[global_allocator]
+static ALLOCATOR: esp_alloc::EspHeap = esp_alloc::EspHeap::empty();
 
-fn main() -> anyhow::Result<()> {
-    // Temporary. Will disappear once ESP-IDF 4.4 is released, but for now it is necessary to call this function once,
-    // or else some patches to the runtime implemented by esp-idf-sys might not link properly.
-    esp_idf_sys::link_patches();
+fn init_heap() {
+    const HEAP_SIZE: usize = 32 * 1024;
 
-    let server = Server::http("0.0.0.0:8000").unwrap();
-
-    for request in server.incoming_requests() {
-        println!(
-            "received request! method: {:?}, url: {:?}, headers: {:?}",
-            request.method(),
-            request.url(),
-            request.headers()
-        );
-
-        let response = Response::from_string("hello world");
-        request.respond(response);
+    extern "C" {
+        static mut _heap_start: u32;
     }
 
-    Ok(())
+    unsafe {
+        let heap_start = &_heap_start as *const _ as usize;
+        ALLOCATOR.init(heap_start as *mut u8, HEAP_SIZE);
+    }
+}
+
+#[entry]
+fn main() -> ! {
+    init_heap();
+    let peripherals = Peripherals::take();
+    let system = peripherals.SYSTEM.split();
+    let clocks = ClockControl::boot_defaults(system.clock_control).freeze();
+
+    // Disable the RTC and TIMG watchdog timers
+    let mut rtc = Rtc::new(peripherals.RTC_CNTL);
+    let timer_group0 = TimerGroup::new(peripherals.TIMG0, &clocks);
+    let mut wdt0 = timer_group0.wdt;
+    let timer_group1 = TimerGroup::new(peripherals.TIMG1, &clocks);
+    let mut wdt1 = timer_group1.wdt;
+
+    rtc.swd.disable();
+    rtc.rwdt.disable();
+    wdt0.disable();
+    wdt1.disable();
+
+    println!("Hello world!");
+
+    loop {}
 }
