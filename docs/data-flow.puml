@@ -1,0 +1,46 @@
+@startuml
+
+participant Mobile
+participant MCU1
+participant MCU2
+participant Mesh
+participant Gateway
+participant LTE
+participant Fleet
+participant Commander
+
+== Device Initialization ==
+
+Mobile -> MCU1: BLE Scan
+Mobile -> MCU2: BLE Scan
+
+MCU1 -> Mobile: BLE Discovery Response
+MCU2 -> MCU2: BLE already registered
+
+Mobile -> LTE: Register MCU1
+LTE -> Fleet: Register MCU1
+
+Fleet -> LTE: Registered MCU1
+LTE -> Mobile: Registered MCU1
+
+Mobile -> MCU1: Registered event with shared key + metadata (e.g. location)
+
+MCU1 -> Mesh: Register to mesh network
+Mesh -> MCU1: Registered
+
+
+== Commanding ==
+
+Commander -> Gateway: send command to id=MCU1
+Gateway -> Mesh: send command to id=MCU1
+Mesh -> MCU2: send command to id=MCU1
+MCU2 -> MCU1: send command to id=MCU1
+
+== Sensor Adverstisement ==
+
+MCU1 -> MCU2: send sensor1
+MCU2 -> Mesh: send sensor1, sensor2
+Mesh -> Gateway: send sensor1, sensor2, sensorN
+Gateway -> Metrics: send sensor1, sensor2, sensorN
+
+@enduml
