@@ -1,46 +1,50 @@
 @startuml
 
+participant Node1
+participant Node2
 participant Mobile
-participant MCU1
-participant MCU2
 participant Mesh
-participant Gateway
+participant Internet
 participant LTE
-participant Fleet
-participant Commander
+participant Gateway
+participant ControlPlane
 
 == Device Initialization ==
 
-Mobile -> MCU1: BLE Scan
-Mobile -> MCU2: BLE Scan
+Mobile -> Node1: BLE Scan
+Mobile -> Node2: BLE Scan
 
-MCU1 -> Mobile: BLE Discovery Response
-MCU2 -> MCU2: BLE already registered
+Node1 -> Mobile: BLE Discovery Response
+Node2 -> Node2: BLE already registered
 
-Mobile -> LTE: Register MCU1
-LTE -> Fleet: Register MCU1
+Mobile -> LTE: Create device
+LTE -> ControlPlane: Create device
 
-Fleet -> LTE: Registered MCU1
-LTE -> Mobile: Registered MCU1
+ControlPlane -> LTE: Registered device id=0x02 (uint16)
+LTE -> Mobile: Registered device id=0x02 (uint16)
+Mobile -> Node1: Registered device id=0x02 (uint16) + metadata (e.g. location)
 
-Mobile -> MCU1: Registered event with shared key + metadata (e.g. location)
+== ECDH key exchange ==
+Node1 -> ControlPlane: Client Hello: Node1 public key
+ControlPlane -> Node1: Server Hello: ControlPlane public key
+Node1 -> Node1: derive session symmetric key1
+ControlPlane -> ControlPlane: derive session symmetric key1
 
-MCU1 -> Mesh: Register to mesh network
-Mesh -> MCU1: Registered
-
+== Bitcoin BIP-32 Node key pair distribution ==
+ControlPlane -> ControlPlane: derives private and public key pair for device id=0x02\nThis ID must be used in the key derivation
+ControlPlane -> Node1: send encrypted derived key pair with parent public key using the session symmetric key1
+Node1 -> Node1: store the public and private key pair in flash
+Node1 -> Node2: send an e2e encrypted message with symmetric key1 and signed with derived BIP-32 key pair
+Node2 -> Node2: derive Node1 public key using parent public key\nThen, authenticates the message
+Node2 -> Mesh: propagate the message if authenticated.
+Mesh -> Gateway: forward messages
+Gateway -> ControlPlane: forward messages
+ControlPlane -> ControlPlane: authenticate and decryptm message using the session key
 
 == Commanding ==
 
-Commander -> Gateway: send command to id=MCU1
-Gateway -> Mesh: send command to id=MCU1
-Mesh -> MCU2: send command to id=MCU1
-MCU2 -> MCU1: send command to id=MCU1
-
-== Sensor Adverstisement ==
-
-MCU1 -> MCU2: send sensor1
-MCU2 -> Mesh: send sensor1, sensor2
-Mesh -> Gateway: send sensor1, sensor2, sensorN
-Gateway -> Metrics: send sensor1, sensor2, sensorN
-
+Commander -> Gateway: send command to id=Node1
+Gateway -> Mesh: send command to id=Node1
+Mesh -> Node2: send command to id=Node1
+Node2 -> Node1: send command to id=MCU1
 @enduml
